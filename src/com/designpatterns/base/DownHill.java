@@ -11,4 +11,9 @@ public class DownHill extends MountainBike {
     public DownHill(WheelInterface wheel) {
         this(wheel, BikeColor.GREEN);
     }
+
+    @Override
+    public float getPrice() {
+        return 870.00f;
+    }
 }

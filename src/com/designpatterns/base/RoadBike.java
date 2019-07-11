@@ -12,5 +12,9 @@ public abstract class RoadBike extends AbstractBike {
 
         this(wheel,BikeColor.BLACK);
     }
+    @Override
+    public float getPrice() {
+        return 670.00f;
+    }
 
 }

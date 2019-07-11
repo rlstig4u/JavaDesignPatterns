@@ -12,4 +12,8 @@ public class CrossCountry extends MountainBike {
         this(wheel, BikeColor.ORANGE);
     }
 
+    @Override
+    public float getPrice() {
+        return 850.00f;
+    }
 }

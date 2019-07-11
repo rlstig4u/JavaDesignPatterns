@@ -11,4 +11,8 @@ public class Vintage extends RoadBike {
         this(wheel, BikeColor.RED);
 
     }
+    @Override
+    public float getPrice() {
+        return 600.00f;
+    }
 }
