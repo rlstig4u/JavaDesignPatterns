@@ -8,27 +8,91 @@ import com.designpatterns.abstractfactory.RoadBikeFactory;
 import com.designpatterns.adapater.UltraWheel;
 import com.designpatterns.adapater.UltraWheelAdapter;
 import com.designpatterns.base.*;
+import com.designpatterns.behavioral.MountainBikeRange;
+import com.designpatterns.behavioral.RoadBikeRange;
 import com.designpatterns.builder.BikeBuilder;
 import com.designpatterns.builder.BikeDirector;
 import com.designpatterns.builder.RoadBikeBuilder;
 import com.designpatterns.builder.RoadBikeDirector;
 import com.designpatterns.decorator.CustomGripOption;
 import com.designpatterns.decorator.GoldFrameOption;
+import com.designpatterns.observer.Gearbox;
+import com.designpatterns.observer.SpeedMonitor;
+import com.designpatterns.observer.Speedometer;
 import com.designpatterns.singleton.SerialNumberGenerator;
 
+import javax.swing.text.html.HTMLDocument;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-            facadeExample();
+            observerExample2();
+           //observerExample1();
+          //iteratorExample2();
+          //iteratorExample1();
+           //facadeExample();
          // decoratorExample();
         //adapterExample();
         //singletonExample();
         //builderExample();
         //abstractFactoryExample();
 	    } // end Main Method
+
+    private static void observerExample2() {
+        com.designpatterns.observer2.Speedometer speed
+                = new com.designpatterns.observer2.Speedometer();
+        speed.addSpeedometerListner(new com.designpatterns.observer2.SpeedMonitor());
+        speed.addSpeedometerListner(new com.designpatterns.observer2.Gearbox());
+
+        speed.setCurrentSpeed(5);
+        speed.setCurrentSpeed(10);
+        speed.setCurrentSpeed(20);
+        speed.setCurrentSpeed(30);
+        speed.setCurrentSpeed(35);
+    }
+
+
+
+
+    private static void observerExample1() {
+        SpeedMonitor monitor = new SpeedMonitor();
+        Speedometer speed = new Speedometer();
+        speed.addObserver(monitor);
+        speed.addObserver(new Gearbox());
+
+        speed.setCurrentSpeed(5);
+        speed.setCurrentSpeed(10);
+        speed.setCurrentSpeed(15);
+        speed.setCurrentSpeed(20);
+        speed.setCurrentSpeed(26);
+        speed.setCurrentSpeed(33);
+
+    }
+
+    private static void iteratorExample2() {
+        System.out.println("=== Our Mountain Bikes ===");
+        MountainBikeRange bikeRange = new MountainBikeRange();
+
+        for(BikeInterface bike : bikeRange.getRange()) {
+            System.out.println(bike);
+        }
+    }
+
+    private static void iteratorExample1(){
+        System.out.println("=== Our Road Bikes===");
+        RoadBikeRange bikeRange = new RoadBikeRange();
+        printIterator(bikeRange.iterator());
+
+    }
+
+    private static void printIterator(Iterator iter) {
+        while(iter.hasNext()) {
+            System.out.println(iter.next());
+        }
+    }
 
     private static void facadeExample(){
         BikeFacade facade = new BikeFacade();
