@@ -32,14 +32,14 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-            visitorExample();
+            //visitorExample();
            //observerExample2();
            //observerExample1();
           //iteratorExample2();
           //iteratorExample1();
            //facadeExample();
          // decoratorExample();
-        //adapterExample();
+        adapterExample();
         //singletonExample();
         //builderExample();
         //abstractFactoryExample();
